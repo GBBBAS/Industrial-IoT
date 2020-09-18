@@ -496,6 +496,66 @@
         "appUrl": {
             "type": "string",
             "value": "[if (variables('platformDeployment'), reference(variables('platformResourceId'), '2017-05-10').outputs.appUrl.value, '')]"
+        },
+        "pcs-deployment-level": {
+            "type": "string",
+            "value": "[variables('infrastructureDeploymentLevel')]"
+        },
+        "pcs-auth-required": {
+            "type": "string",
+            "value": "[not(empty(parameters('serviceAppId')))]"
+        },
+        "pcs-auth-tenant": {
+            "type": "string",
+            "value": "[subscription().tenantId]"
+        },
+        "pcs-auth-instance": {
+            "type": "string",
+            "value": "[parameters('authorityUri')]"
+        },
+        "pcs-auth-client-appid": {
+            "type": "string",
+            "value": "[parameters('clientAppId')]"
+        },
+        "pcs-auth-client-secret": {
+            "type": "string",
+            "value": "[parameters('clientAppSecret')]"
+        },
+        "pcs-auth-public-client-appid": {
+            "type": "string",
+            "value": "[parameters('publicClientAppId')]"
+        },
+        "pcs-auth-service-appid": {
+            "type": "string",
+            "value": "[parameters('serviceAppId')]"
+        },
+        "pcs-auth-service-secret": {
+            "type": "string",
+            "value": "[parameters('serviceAppSecret')]"
+        },
+        "pcs-auth-audience": {
+            "type": "string",
+            "value": "[parameters('serviceAudience')]"
+        },
+        "pcs-auth-issuer": {
+            "type": "string",
+            "value": "[parameters('trustedTokenIssuer')]"
+        },
+        "pcs-docker-server": {
+            "type": "string",
+            "value": "[parameters('dockerServer')]"
+        },
+        "pcs-docker-user": {
+            "type": "string",
+            "value": "[parameters('dockerUser')]"
+        },
+        "pcs-docker-password": {
+            "type": "string",
+            "value": "[parameters('dockerPassword')]"
+        },
+        "pcs-images-namespace": {
+            "type": "string",
+            "value": "[parameters('imagesNamespace')]"
         }
     }
 }
