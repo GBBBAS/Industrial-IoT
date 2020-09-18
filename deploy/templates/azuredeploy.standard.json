@@ -699,6 +699,58 @@
         "tsiUrl": {
             "type": "string",
             "value": "[reference(variables('tsiEnvironmentResourceId'), '2018-08-15-preview').dataAccessFQDN]"
+        },
+        "pcs-dps-connstring": {
+            "type": "string",
+            "value": "[concat('HostName=', reference(variables('dpsResourceId'), '2018-01-22'). serviceOperationsHostName, ';SharedAccessKeyName=', listkeys(variables('dpsResourceId'), '2018-01-22').value[0].keyName, ';SharedAccessKey=', listkeys(variables('dpsResourceId'), '2018-01-22').value[0].primaryKey)]"
+        },
+        "pcs-dps-idscope": {
+            "type": "string",
+            "value": "[reference(variables('dpsResourceId'), '2018-01-22').idScope]"
+        },
+        "pcs-adlsg2-account": {
+            "type": "string",
+            "value": "[parameters('datalakeName')]"
+        },
+        "pcs-adlsg2-account-key": {
+            "type": "string",
+            "value": "[listKeys(variables('datalakeResourceId'), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value]"
+        },
+        "pcs-signalr-connstring": {
+            "type": "string",
+            "value": "[listkeys(parameters('signalRName'), '2018-10-01').primaryConnectionString]"
+        },
+        "pcs-workspace-name": {
+            "type": "string",
+            "value": "[parameters('workspaceName')]"
+        },
+        "pcs-workspace-id": {
+            "type": "string",
+            "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2017-03-15-preview').customerId]"
+        },
+        "pcs-workspace-key": {
+            "type": "string",
+            "value": "[listKeys(variables('omsResourceId'), '2015-11-01-preview').primarySharedKey]"
+        },
+        "pcs-workbook-id": {
+            "type": "string",
+            "value": "[parameters('workbookId')]"
+        },
+        "pcs-appinsights-instrumentationkey": {
+            "type": "string",
+            "value": "[reference(variables('appinsightsResourceId'), '2015-05-01').InstrumentationKey]"
+        },
+        "pcs-tsi-url": {
+            "type": "string",
+            "value": "[reference(variables('tsiEnvironmentResourceId'), '2018-08-15-preview').dataAccessFQDN]"
+        },
+        "pcs-subscription-id": {
+            "type": "string",
+            "value": "[subscription().subscriptionId]"
+        },
+        "pcs-resource-group": {
+            "type": "string",
+            "value": "[resourceGroup().name]"
         }
     }
 }
