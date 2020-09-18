@@ -13,7 +13,7 @@ If you have not done so yet, clone this GitHub repository.  To clone the reposit
 To clone the repository, open a command prompt or terminal and run:
 
 ```bash
-git clone https://github.com/Azure/Industrial-IoT
+git clone https://github.com/GBBBAS/Industrial-IoT
 cd Industrial-IoT
 ```
 

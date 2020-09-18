@@ -3,7 +3,7 @@
 [Home](readme.md)
 
 ## Overview
-The costs of running the [Azure IIoT Platform](https://github.com/Azure/Industrial-IoT) in Azure depend on factors such as:
+The costs of running the [Azure IIoT Platform](https://github.com/GBBBAS/Industrial-IoT) in Azure depend on factors such as:
 * Number of OPC UA servers (e.g. PLCs)
 * Number of nodes per server
 * Frequency of data changes

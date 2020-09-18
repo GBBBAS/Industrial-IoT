@@ -1,6 +1,6 @@
 # Azure Industrial IoT <!-- omit in toc -->
 
-[Azure Industrial IoT](https://github.com/Azure/Industrial-IoT) allows users to discover OPC UA
+[Azure Industrial IoT](https://github.com/GBBBAS/Industrial-IoT) allows users to discover OPC UA
 enabled servers in a factory network, register them in Azure IoT Hub and start collecting data from them.
 
 ## Table Of Contents <!-- omit in toc -->
@@ -54,7 +54,7 @@ enabled servers in a factory network, register them in Azure IoT Hub and start c
 
 ## Introduction
 
-This chart bootstraps [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT) deployment on a
+This chart bootstraps [Azure Industrial IoT](https://github.com/GBBBAS/Industrial-IoT) deployment on a
 [Kubernetes](https://kubernetes.io/) cluster using the [Helm](https://helm.sh/) package manager.
 
 ## Prerequisites

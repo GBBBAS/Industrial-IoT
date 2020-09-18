@@ -220,7 +220,7 @@ Function Select-RepositoryAndBranch() {
     
     if ([string]::IsNullOrEmpty($script:repo)) {
         # Try get repo name / TODO
-        $script:repo = "https://github.com/Azure/Industrial-IoT"
+        $script:repo = "https://github.com/GBBBAS/Industrial-IoT"
     }
 
     if ([string]::IsNullOrEmpty($script:branchName)) {
@@ -257,7 +257,7 @@ Function Select-RepositoryAndBranch() {
             catch {
                 throw "This script requires *git* to be installed and must be run from " + `
                     "within a branch of the Industrial IoT repository. " + `
-                    "See the deployment documentation at https://github.com/Azure/Industrial-IoT " + `
+                    "See the deployment documentation at https://github.com/GBBBAS/Industrial-IoT " + `
                     "to learn about other deployment options."
             }
         }
@@ -1084,7 +1084,7 @@ Function Test-All-Deployment-Options() {
     }
     $testGroup = $script:resourceGroupName
 
-    $script:repo = "https://github.com/Azure/Industrial-IoT"
+    $script:repo = "https://github.com/GBBBAS/Industrial-IoT"
     $script:branchName = "master"
     $script:interactive = $false
     $script:deleteOnErrorPrompt = $false

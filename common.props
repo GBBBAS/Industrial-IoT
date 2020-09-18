@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <Product>Azure Industrial IoT Platform</Product>
-    <RepositoryUrl>https://github.com/Azure/Industrial-IoT</RepositoryUrl>
+    <RepositoryUrl>https://github.com/GBBBAS/Industrial-IoT</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NoWarn>NU5125;RS1022;AD0001</NoWarn>
     <Authors>Microsoft</Authors>
