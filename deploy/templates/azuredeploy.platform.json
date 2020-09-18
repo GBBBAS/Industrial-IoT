@@ -318,43 +318,6 @@
             ]
         },
         {
-            "comments": "Save service url as configuration.",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-08-01",
-            "name": "[variables('serviceConfigurationResourceName')]",
-            "condition": "[and(not(empty(parameters('keyVaultName'))), not(empty(parameters('serviceSiteName'))))]",
-            "properties": {
-                "mode": "Incremental",
-                "parameters": {
-                    "keyVaultName": {
-                        "value": "[parameters('keyVaultName')]"
-                    },
-                    "configuration": {
-                        "value": [
-                            {
-                                "key": "PCS_SERVICE_NAME",
-                                "value": "[concat('https://', reference(variables('serviceSiteResourceId'), '2018-11-01').hostNames[0])]"
-                            },
-                            {
-                                "key": "PCS_SERVICE_HOOK",
-                                "value": "[if(empty(parameters('serviceSiteName')), '', concat('https://$', list(variables('servicePublishingConfigResource'), '2016-08-01').properties.publishingUserName, ':', list(variables('servicePublishingConfigResource'), '2016-08-01').properties.publishingPassword, '@', replace(list(variables('servicePublishingConfigResource'), '2016-08-01').properties.scmUri, 'https://', ''), ''))]"
-                            }
-                        ]
-                    },
-                    "tags": {
-                        "value": "[parameters('tags')]"
-                    }
-                },
-                "templateLink": {
-                    "contentVersion": "1.0.0.0",
-                    "uri": "[concat(variables('templateBaseUrl'), 'azuredeploy.configuration.json')]"
-                }
-            },
-            "dependsOn": [
-                "[variables('serviceSiteResourceId')]"
-            ]
-        },
-        {
             "comments": "Deploy application container.",
             "condition": "[not(empty(parameters('siteName')))]",
             "type": "Microsoft.Web/sites",
@@ -451,39 +414,6 @@
             "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
                 "[variables('serviceConfigurationResourceId')]"
-            ]
-        },
-        {
-            "comments": "Save app hook as configuration.",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-08-01",
-            "name": "[variables('appConfigurationResourceName')]",
-            "condition": "[and(not(empty(parameters('keyVaultName'))), not(empty(parameters('siteName'))))]",
-            "properties": {
-                "mode": "Incremental",
-                "parameters": {
-                    "keyVaultName": {
-                        "value": "[parameters('keyVaultName')]"
-                    },
-                    "configuration": {
-                        "value": [
-                            {
-                                "key": "PCS_APP_HOOK",
-                                "value": "[if(empty(parameters('siteName')), '', concat('https://$', list(variables('appPublishingConfigResource'), '2016-08-01').properties.publishingUserName, ':', list(variables('appPublishingConfigResource'), '2016-08-01').properties.publishingPassword, '@', replace(list(variables('appPublishingConfigResource'), '2016-08-01').properties.scmUri, 'https://', ''), ''))]"
-                            }
-                        ]
-                    },
-                    "tags": {
-                        "value": "[parameters('tags')]"
-                    }
-                },
-                "templateLink": {
-                    "contentVersion": "1.0.0.0",
-                    "uri": "[concat(variables('templateBaseUrl'), 'azuredeploy.configuration.json')]"
-                }
-            },
-            "dependsOn": [
-                "[variables('appSiteResourceId')]"
             ]
         }
     ],
