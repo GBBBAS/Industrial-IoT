@@ -412,8 +412,7 @@
                 }
             ],
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-                "[variables('serviceConfigurationResourceId')]"
+                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
             ]
         }
     ],
