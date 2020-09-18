@@ -502,7 +502,7 @@
             "value": "[variables('infrastructureDeploymentLevel')]"
         },
         "pcs-auth-required": {
-            "type": "string",
+            "type": "bool",
             "value": "[not(empty(parameters('serviceAppId')))]"
         },
         "pcs-auth-tenant": {
