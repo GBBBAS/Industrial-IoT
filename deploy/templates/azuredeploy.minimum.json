@@ -596,6 +596,66 @@
         "eventHubName": {
             "type": "string",
             "value": "[parameters('eventHubName')]"
-        }
+        },
+        "pcs-iothub-connstring": {
+            "type": "string",
+            "value": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2018-04-01').primaryKey)]"
+        },
+        "pcs-iothub-eventhubendpoint": {
+            "type": "string",
+            "value": "[reference(variables('iotHubResourceId')).eventHubEndpoints.events.endpoint]"
+        },
+        "pcs-iothub-eventhubconsumergroup": {
+            "type": "string",
+            "value": "[variables('iothubTelemetryConsumerGroup')]"
+        },
+        "pcs-iothub-eventhubconsumergroup2": {
+            "type": "string",
+            "value": "[variables('iothubEventsConsumerGroup')]"
+        },
+        "pcs-iothub-eventhubconsumergroup3": {
+            "type": "string",
+            "value": "[variables('iothubTunnelConsumerGroup')]"
+        },
+        "pcs-iothub-eventhubconsumergroup4": {
+            "type": "string",
+            "value": "[variables('iothubOnboardingConsumerGroup')]"
+        },
+        "pcs-storage-connstring": {
+            "type": "string",
+            "value": "[concat('DefaultEndpointsProtocol=https', ';EndpointSuffix=', environment().suffixes.storage, ';AccountName=', parameters('storageName'), ';AccountKey=', listKeys(variables('storageResourceId'), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]"
+        },
+        "pcs-storage-key": {
+            "type": "string",
+            "value": "[listKeys(variables('storageResourceId'), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value]"
+        },
+        "pcs-cosmosdb-connstring": {
+            "type": "string",
+            "value": "[concat('AccountEndpoint=', reference(variables('cosmosDbResourceId')).documentEndpoint, ';AccountKey=', listkeys(variables('cosmosDbResourceId'), '2016-03-19').primaryMasterKey, ';')]"
+        },
+        "pcs-eventhub-connstring": {
+            "type": "string",
+            "value": "[concat('Endpoint=sb://', parameters('eventHubNamespaceName'), '.', parameters('serviceBusEndpointSuffix'), '/;SharedAccessKeyName=', variables('eventHubKeyName'), ';SharedAccessKey=', listkeys(variables('eventHubKeyResourceId'), '2017-04-01').primaryKey, ';')]"
+        },
+        "pcs-eventhub-name": {
+            "type": "string",
+            "value": "[parameters('eventHubName')]"
+        },
+        "pcs-servicebus-connstring": {
+            "type": "string",
+            "value": "[listkeys(variables('serviceBusKeyResourceId'), '2017-04-01').primaryConnectionString]"
+        },
+        "pcs-ketvault-url": {
+            "type": "string",
+            "value": "[reference(resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))).vaultUri]"
+        },
+        "pcs-msi-appid": {
+            "type": "string",
+            "value": "[reference(variables('identityResourceId'), '2018-11-30').clientId]"
+        },
+        "pcs-msi-tenant": {
+            "type": "string",
+            "value": "[reference(variables('identityResourceId'), '2018-11-30').tenantId]"
+        }                     
     }
 }
